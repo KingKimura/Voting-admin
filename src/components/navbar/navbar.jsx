@@ -79,14 +79,6 @@ function Navbar() {
 
                         </p>
 
-                        <p>
-
-                            <Link to="/contact" className="home">
-                            Contact
-                            </Link>
-
-                        </p>
-
                         <div className="profile">
 
                             <CgProfile className="profile-icon" />
