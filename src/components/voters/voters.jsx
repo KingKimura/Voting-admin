@@ -1,7 +1,6 @@
 import React from 'react'
 import './voters.css'
-
-
+import {AiFillDelete} from 'react-icons/ai'
 
 
 function voters() {
@@ -42,7 +41,7 @@ function voters() {
         <thead>
         <tr>
             <th>#</th>
-            <th>Title</th>
+            {/* <th>Title</th> */}
             <th>First Name</th>
             {/* <th>Last Name</th> */}
             <th>Email</th>
@@ -60,6 +59,8 @@ function voters() {
             <td>{user.id}</td>
             <td>{user.county}</td>
             {/* <td>{user.subCounty}</td> */}
+
+            <td><AiFillDelete/></td>
             </tr>
         ))}
         </tbody>
