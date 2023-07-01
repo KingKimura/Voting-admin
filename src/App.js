@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LogPages from '../src/pages/login/login'
 import DashboardPages from '../src/pages/dashboard/dash'
-
+import VoterPages from '../src/pages/voters/voters'
 
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
 
           <Route path="/" element={<LogPages/>} />
           <Route path ='/dashboard' element ={<DashboardPages/>}/>
+          <Route path ='/voters' element={<VoterPages/>} />
 
 
 
