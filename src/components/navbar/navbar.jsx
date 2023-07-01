@@ -63,22 +63,7 @@ function Navbar() {
 
                     <div className="flex-direction-left">
 
-                        <p>
-
-                            <Link to="" className="home">
-                            Admin
-                            </Link>
-
-                        </p>
-
-                        <p>
-
-                            <Link to="/" className="home">
-                            Aspirant
-                            </Link>
-
-                        </p>
-
+                       
                         <div className="profile">
 
                             <CgProfile className="profile-icon" />
