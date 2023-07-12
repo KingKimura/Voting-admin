@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './login.css'
 import {MdEmail} from 'react-icons/md'
 import {Link} from 'react-router-dom'
@@ -6,6 +6,23 @@ import {RiLockPasswordFill} from 'react-icons/ri'
 
 
 function Login() {
+
+    const [email, setemail] = useState()
+    const [pwd, setpwd] = useState()
+
+    const handleEmail = ()=>{
+        setemail('ryanwanjiedistortion@gmail.com')
+    }
+
+    const handlePwd = ()=>{
+
+        setpwd('74hihb!')
+    }
+
+    const handleLogin = ()=>{
+
+        
+    }
 
 
 
@@ -28,6 +45,9 @@ function Login() {
 
                      <input
                         type="email"
+                        name ='email'
+                        value ={email}
+                        onChange={handleEmail}
                         placeholder="Enter your email"
                         required
                     />
@@ -40,6 +60,9 @@ function Login() {
 
                     <input
                     type="password"
+                    name ='pwd'
+                    value ={pwd}
+                    onChange ={handlePwd}
                     placeholder=" Enter your Password"
                     required
                     />
