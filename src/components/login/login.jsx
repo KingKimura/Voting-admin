@@ -1,17 +1,18 @@
 import React, {useState, useEffect} from 'react'
 import './login.css'
 import {MdEmail} from 'react-icons/md'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {RiLockPasswordFill} from 'react-icons/ri'
+import sweetAlert from 'sweetalert2'
 
 
 function Login() {
 
-    const [email, setemail] = useState()
+    const [username, setusername] = useState()
     const [pwd, setpwd] = useState()
 
-    const handleEmail = ()=>{
-        setemail('ryanwanjiedistortion@gmail.com')
+    const handleUsername = ()=>{
+        setusername('Ryan Wanjie')
     }
 
     const handlePwd = ()=>{
@@ -19,9 +20,45 @@ function Login() {
         setpwd('74hihb!')
     }
 
-    const handleLogin = ()=>{
+    const navigate = useNavigate()
 
-        
+    const handleLogin = (e)=>{
+
+        e.preventDefault()
+
+        if(!username || !pwd){
+
+            sweetAlert.fire({
+
+                icon:'error',
+                title:'oops...',
+                text:'Please Enter all Details of the Submission form'
+
+            })
+
+            return
+        }
+
+        else{
+
+            sweetAlert.fire({
+
+                icon:'success',
+                title:'Login Successful',
+                text:'Details correct'
+
+            })
+
+            return
+
+            setTimeout(()=>{
+
+                navigate('/dashboard')
+
+            },2000)
+
+        }
+
     }
 
 
@@ -35,7 +72,7 @@ function Login() {
         <section className="login-part">
 
 
-            <form className="login" >
+            <form className="login" onSubmit = {handleLogin} >
 
                 <h2 className="sign-in-h2">Sign-In to Sisi Voters Admin</h2>
 
@@ -44,11 +81,11 @@ function Login() {
                     <MdEmail/>
 
                      <input
-                        type="email"
-                        name ='email'
-                        value ={email}
-                        onChange={handleEmail}
-                        placeholder="Enter your email"
+                        type="text"
+                        name ='text'
+                        value ={username}
+                        onChange={handleUsername}
+                        placeholder="Enter your username"
                         required
                     />
 
