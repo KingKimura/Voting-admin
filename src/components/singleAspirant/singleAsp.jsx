@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './singleAsp.css'
 import {BsFillPersonFill, BsFillImageFill} from 'react-icons/bs'
-import {Link, useNavigate} from 'react-router-dom'
+import {Link, useNavigate, useParams} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import {Image} from 'cloudinary-react'
@@ -41,50 +41,26 @@ function SingleAsp() {
 
                 </div> 
 
+                <div className ='updating-details'>
+
+                    <h3>Aspirant Name:</h3>
+                    <h3>Aspirant Position:</h3>
+                    <h3>Aspirant Represenation:</h3>
+
+
+
+                </div>
+
+                <div className='crucial-btns'>
+
+                    <button className="sign-in-btn" >Update Details</button>
+                    <button className ='delete-btn'>Delete Aspirant</button>
+
+                </div>
+
                  
 
-                <form className="updating-details" >
-
-                    <div className ='update-img'>
-
-
-                        <BsFillImageFill/>
-
-                        <input type ='file' name ='image' accept='image/*'/>
-
-
-                    </div>
-
-                    <div className ='name'>
-
-                        <BsFillPersonFill/>
-
-                        <input
-                            type="text"
-                            name="name"
-                            required
-                            placeholder="Enter Your name"
-                        />
-
-                    </div>
-
-                    <div className="reg-submit-btn">
-
-                        {/* {errmsg ? <p className ='error-msg'>{errmsg}</p>:( */}
-
-
-                            
-                            <button type="submit" className="btn-reg" > Submit</button> 
-                            
-                        {/* // )} */}
-                    
-                     </div>
-
-
-
-                </form>
-
-               
+                
 
 
 
@@ -106,3 +82,49 @@ function SingleAsp() {
 }
 
 export default SingleAsp
+
+
+
+
+
+{/* <form className="updating-details" >
+
+<div className ='update-img'>
+
+
+    <BsFillImageFill/>
+
+    <input type ='file' name ='image' accept='image/*'/>
+
+
+</div>
+
+<div className ='name'>
+
+    <BsFillPersonFill/>
+
+    <input
+        type="text"
+        name="name"
+        required
+        placeholder="Enter Your name"
+    />
+
+</div>
+
+<div className="reg-submit-btn">
+
+    {/* {errmsg ? <p className ='error-msg'>{errmsg}</p>:( */}
+
+
+        
+        // <button type="submit" className="btn-reg" > Submit</button> 
+        
+    {/* // )} */}
+
+//  </div>
+
+
+
+// </form>
+ 
