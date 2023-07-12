@@ -146,7 +146,7 @@ function Aspirant() {
 
                           <td>{index +1}</td>
                           <td><img src={allasps.image} className ='img' alt={allasps.name}/></td>
-                          <Link to ={{ pathname: `/aspirants/${allasps._id}`  }} className ='linkto'><td>{allasps.name}</td></Link>
+                          <Link to ={{ pathname: `/singleaspirant/${allasps._id}`  }} className ='linkto'><td>{allasps.name}</td></Link>
                           <td>{allasps.email}</td>
                           <td>{allasps.phoneNumber}</td>
                           <td>{allasps.Position}</td>

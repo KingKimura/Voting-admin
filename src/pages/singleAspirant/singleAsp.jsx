@@ -1,12 +1,12 @@
 import React from 'react'
 import Navbar from '../../components/navbar/navbar'
-import SingleAspPages from '../../components/singleAspirant/singleAsp'
+import SingleAspPages from '../../components/singleAspirant/singleAsp.jsx'
 import Footer from '../../components/footer/Footer'
 
 
 
 
-function DashPages( ) {
+function SingAspPages( ) {
 
 
     return(
@@ -30,4 +30,4 @@ function DashPages( ) {
 
 
 
-export default DashPages
+export default SingAspPages
