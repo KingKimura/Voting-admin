@@ -13,13 +13,58 @@ import {TbFidgetSpinner} from 'react-icons/tb'
 function SingleAsp() {
 
     const navigate = useNavigate()
-
+    const {id} = useParams()
     
 
     const [loading, setloading] = useState(false)
     const [errmsg, seterrmsg] = useState('')
     const [image, setimage] = useState('')
     const [name, setname] = useState('')
+    const [singAsp, setsingAsp] = useState()
+
+    useEffect(()=>{
+
+        const fetchSingleAsp = async()=>{
+
+            try{
+
+                setloading(true)
+
+                const singleAspirant = await axios.get(`http://localhost:3007/api/admin/allaspirants/${id}`)
+                // console.log(singleAspirant)
+
+                const singleAspData = singleAspirant.data.singleAsp
+
+                // console.log(singleAspData)
+
+                // console.log(singAsp)
+
+                setsingAsp(singleAspData)
+
+                
+
+                setloading(false)
+
+
+
+            }
+
+            catch(err){
+
+                // console.log(err)
+                seterrmsg('Oops, refresh the page, something is wrong')
+                setloading(false)
+            }
+
+
+        }
+
+        fetchSingleAsp()
+
+
+    }, [id])
+
+
 
     
   return (
@@ -30,33 +75,35 @@ function SingleAsp() {
 
         <section className ='main-profile'>
 
-            <div className='profile-container'>
+            {singAsp?(
+                
+                <div className='profile-container'>
 
-                <div className="profile-pic">
+                            <div className="profile-pic">
 
-                    {/* <img src= {aspsimg} className ='prof-pic-user' alt ='profile'/> */}
+                                <img src= {singAsp.image} className ='prof-pic-user' alt ={singAsp.name}/>
 
-                    {/* <Image cloudName ='https://api.cloudinary.com/v1_1/djgk2k4sw/image/upload' publicId ={imageString} className ='prof-pic-user' alt ='profile'/> */}
-
-
-                </div> 
-
-                <div className ='updating-details'>
-
-                    <h3>Aspirant Name:</h3>
-                    <h3>Aspirant Position:</h3>
-                    <h3>Aspirant Represenation:</h3>
+                                {/* <Image cloudName ='https://api.cloudinary.com/v1_1/djgk2k4sw/image/upload' publicId ={imageString} className ='prof-pic-user' alt ='profile'/> */}
 
 
+                            </div> 
 
-                </div>
+                            <div className ='updating-details'>
 
-                <div className='crucial-btns'>
+                                <h3>Aspirant Name:<span className='asp'>{singAsp.name}</span></h3>
+                                <h3>Aspirant Position:<span className='asp'>{singAsp.Position}</span></h3>
+                                <h3>Aspirant Represenation:<span className='asp'>{singAsp.Represent}</span></h3>
 
-                    <button className="sign-in-btn" >Update Details</button>
-                    <button className ='delete-btn'>Delete Aspirant</button>
 
-                </div>
+
+                            </div>
+
+                            <div className='crucial-btns'>
+
+                                <button className="sign-in-btn" >Update Details</button>
+                                <button className ='delete-btn'>Delete Aspirant</button>
+
+                            </div>
 
                  
 
@@ -64,7 +111,15 @@ function SingleAsp() {
 
 
 
-            </div>
+                </div>
+
+                ):(
+
+                  <TbFidgetSpinner className='spinner-loader'/>
+
+                )
+            
+            }
 
 
 
