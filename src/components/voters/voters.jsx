@@ -24,13 +24,17 @@ function Voters() {
 
         const Voters = await axios.get('http://localhost:3007/api/admin/allvoters')
 
-        console.log(Voters)
+        // console.log(Voters)
 
         const realvoters = Voters.data.allvoters
 
-        console.log(realvoters)
+        // console.log(realvoters)
 
         setvoters(realvoters)
+
+        console.log(voters)
+
+        setloading(false)
 
 
       }
@@ -106,6 +110,7 @@ function Voters() {
 
               </table>
 
+              {errmsg && <p className ='error'>{errmsg}</p>}
 
           </div>
 
