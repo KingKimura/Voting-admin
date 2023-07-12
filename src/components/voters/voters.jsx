@@ -56,6 +56,49 @@ function Voters() {
 
   },[])
 
+  //DOWNLOADING REPORT  
+
+  const handlePrint = () => {
+
+    // Create the report content
+    const reportContent = voters
+      .map((allvoters, index) => `${index + 1}. ${allvoters.name}. ${allvoters.phoneNumber}`)
+      .join('\n');
+
+    // Create a temporary element to hold the report content
+    const tempElement = document.createElement('textarea');
+    tempElement.value = reportContent;
+
+    // Append the temporary element to the document body
+    document.body.appendChild(tempElement);
+
+    // Select the content of the temporary element
+    tempElement.select();
+    tempElement.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the selected content to the clipboard
+    document.execCommand('copy');
+
+    // Remove the temporary element
+    document.body.removeChild(tempElement);
+
+    // Trigger the download of the report
+    const fileName = 'Admin_voters_report.txt';
+    const data = new Blob([reportContent], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(data);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = fileName;
+    link.click();
+
+    // Release the URL object
+    window.URL.revokeObjectURL(url);
+
+  };
+
+
+
 
 
     
@@ -75,10 +118,12 @@ function Voters() {
 
           <div className="table-container">
 
-              <AiFillPrinter className='print' title ='print report'/>
+              <AiFillPrinter className='print' title ='print report' onClick ={handlePrint}/>
             
 
-              <table className="user-table">
+              {loading?  <TbFidgetSpinner className ='spinner-loader'/> :(
+                
+                <table className="user-table">
 
                   <thead>
 
@@ -92,27 +137,42 @@ function Voters() {
 
                   
                     
-                    <tbody>
+                  {voters ? voters.map((vote, index)=>(
 
-              
-                    <tr>
+                    
+                      <tbody key ={vote._id}>
 
-                      <td>1</td>
-                      <td>Customer</td>
-                      <td>938934</td>
-                      
+                  
+                        <tr>
 
-                      {/* <td><AiFillDelete/></td> */}
-                    </tr>
+                          <td>{index +1}</td>
+                          <Link to ={{ pathname: `/voter/${vote._id}`  }} className ='linkto'><td>{vote.name}</td></Link>
+                          <td>{vote.phoneNumber}</td>
+                          
+
+                          {/* <td><AiFillDelete/></td> */}
+                        </tr>
+                    
+
+
+                      </tbody>
+                  
                 
 
+                    )):(
 
-                  </tbody>
+                      <p>There are no Voters To Fetch</p>
+
+                    )
+                  
+                  }
                   
                   
 
 
               </table>
+              
+              )}
 
               {/* {errmsg && <p className ='error'>{errmsg}</p>} */}
 

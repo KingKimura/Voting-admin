@@ -16,6 +16,13 @@ table {
 
 }
 
+.linkto{
+
+  color:white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 th, td {
   padding: 10px;
   text-align: left;
