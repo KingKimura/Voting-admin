@@ -1,13 +1,56 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './voters.css'
 import {AiFillDelete,AiFillPrinter} from 'react-icons/ai'
 import {TbFidgetSpinner} from 'react-icons/tb'
 import {Link, useNavigate} from 'react-router-dom'
+import axios from 'axios'
 
 
 
+function Voters() {
 
-function voters() {
+  const [loading, setloading] = useState(false)
+  const [errmsg, seterrmsg] = useState()
+  const [voters, setvoters] = useState([])
+
+
+  useEffect(()=>{
+
+    const getAllVoters = async()=>{
+
+      try{
+
+        setloading(true)
+
+        const Voters = await axios.get('http://localhost:3007/api/admin/allvoters')
+
+        console.log(Voters)
+
+        const realvoters = Voters.data.allvoters
+
+        console.log(realvoters)
+
+        setvoters(realvoters)
+
+
+      }
+
+      catch(err){
+
+        console.log(err)
+        seterrmsg('There was an error fetching the voters')
+        setloading(false)
+      }
+
+
+    }
+
+
+    getAllVoters()
+
+
+
+  },[])
 
 
 
@@ -79,4 +122,4 @@ function voters() {
   )
 }
 
-export default voters
+export default Voters
