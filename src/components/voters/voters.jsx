@@ -1,28 +1,17 @@
 import React from 'react'
 import './voters.css'
-import {AiFillDelete} from 'react-icons/ai'
+import {AiFillDelete,AiFillPrinter} from 'react-icons/ai'
+import {TbFidgetSpinner} from 'react-icons/tb'
+import {Link, useNavigate} from 'react-router-dom'
+
+
 
 
 function voters() {
 
 
 
-    const users = [
-        {
-          firstName: "John",
-          lastName: "Doe",
-          id: "123456",
-          county: "Sample County",
-          subCounty: "Sample Sub-County",
-        },
-        {
-          firstName: "John",
-          lastName: "Doe",
-          id: "123456",
-          county: "Sample County",
-          subCounty: "Sample Sub-County",
-        }
-      ];
+    
 
 
   return (
@@ -32,48 +21,58 @@ function voters() {
     <>
 
 
-<section className="voters-reports">
+      <section className="voters-reports">
+
+          <p className= 'voter-title'>The voters are:</p>
 
 
+          <div className="table-container">
 
-<div className="table-container">
-    <table className="user-table">
-        <thead>
-        <tr>
-            <th>#</th>
-            {/* <th>Title</th> */}
-            <th>First Name</th>
-            {/* <th>Last Name</th> */}
-            <th>Email</th>
-            <th>Votes</th>
-            {/* <th>Sub-County</th> */}
-        </tr>
-        </thead>
-        <tbody>
-        {users.map((user, index) => (
-            <tr key={index}>
-            <td>{index + 1}</td>
-            <td>Customer</td>
-            <td>{user.firstName}</td>
-            {/* <td>{user.lastName}</td> */}
-            <td>{user.id}</td>
-            <td>{user.county}</td>
-            {/* <td>{user.subCounty}</td> */}
+              <AiFillPrinter className='print' title ='print report'/>
+            
 
-            <td><AiFillDelete/></td>
-            </tr>
-        ))}
-        </tbody>
-    </table>
-</div>
+              <table className="user-table">
 
-</section>
+                  <thead>
+
+                      <tr>
+                          <th>#</th>
+                          <th>Name</th>
+                          <th>Contact</th>
+                      </tr>
+
+                  </thead>
+
+                  <tbody>
+
+              
+                    <tr>
+
+                      <td>1</td>
+                      <td>Customer</td>
+                      <td>938934</td>
+                      
+
+                      {/* <td><AiFillDelete/></td> */}
+                    </tr>
+                
 
 
-    
-    
-    
-    
+                  </tbody>
+
+
+              </table>
+
+
+          </div>
+
+      </section>
+
+
+              
+              
+              
+              
     </>
 
 

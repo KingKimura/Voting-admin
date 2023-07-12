@@ -21,11 +21,12 @@ function Login() {
     }
 
     const navigate = useNavigate()
-
-    const handleLogin = (e)=>{
-
+    
+    const HandleLogin = (e)=>{
+        
+        
         e.preventDefault()
-
+        
         if(!username || !pwd){
 
             sweetAlert.fire({
@@ -33,29 +34,30 @@ function Login() {
                 icon:'error',
                 title:'oops...',
                 text:'Please Enter all Details of the Submission form'
-
+                
             })
-
+            
             return
         }
-
+        
         else{
-
+            
             sweetAlert.fire({
-
+                
                 icon:'success',
                 title:'Login Successful',
                 text:'Details correct'
-
+                
             })
-
-            return
-
+            
+    
             setTimeout(()=>{
 
                 navigate('/dashboard')
 
             },2000)
+
+            return
 
         }
 
@@ -72,7 +74,7 @@ function Login() {
         <section className="login-part">
 
 
-            <form className="login" onSubmit = {handleLogin} >
+            <form className="login" onSubmit = {HandleLogin} >
 
                 <h2 className="sign-in-h2">Sign-In to Sisi Voters Admin</h2>
 
@@ -106,7 +108,7 @@ function Login() {
 
                 </div>
 
-                <Link to ='/dashboard'><button className="sign-in-btn"> Submit</button></Link>
+                <button className="sign-in-btn"> Submit</button>
 
                
                 
