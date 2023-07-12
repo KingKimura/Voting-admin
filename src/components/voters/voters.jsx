@@ -90,7 +90,9 @@ function Voters() {
 
                   </thead>
 
-                  <tbody>
+                  
+                    
+                    <tbody>
 
               
                     <tr>
@@ -106,11 +108,13 @@ function Voters() {
 
 
                   </tbody>
+                  
+                  
 
 
               </table>
 
-              {errmsg && <p className ='error'>{errmsg}</p>}
+              {/* {errmsg && <p className ='error'>{errmsg}</p>} */}
 
           </div>
 
