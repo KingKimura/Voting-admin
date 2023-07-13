@@ -4,7 +4,7 @@ import Modal from 'react-modal'
 import {BsFillPersonFill} from 'react-icons/bs'
 import {FaPoll,FaSchool} from 'react-icons/fa'
 
-function Update({ isOpen, onClose, onUpdate, name, position, represent, onChange }) {
+function Update({ isOpen, onClose, onUpdate, Aspname, position, represent, onChange, errmsg }) {
 
 
   return (
@@ -27,7 +27,7 @@ function Update({ isOpen, onClose, onUpdate, name, position, represent, onChange
 
                     <BsFillPersonFill/>
 
-                    <input type="text" name="name" placeholder ='Enter the Aspirants name' value={name} onChange={onChange} />
+                    <input type="text" name="names" placeholder ='Enter the Aspirants name' value={Aspname} onChange={onChange} />
 
                 </div>
 
@@ -69,6 +69,8 @@ function Update({ isOpen, onClose, onUpdate, name, position, represent, onChange
 
                 <button onClick={onUpdate} className='update-modal-button' >Confirm Update</button>
                 <button onClick={onClose} className ='modal-close-button'>Cancel</button>
+
+                {errmsg && <p className ='error'>{errmsg}</p>}
 
         </div>
 

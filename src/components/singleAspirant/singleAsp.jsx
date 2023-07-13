@@ -20,7 +20,7 @@ function SingleAsp() {
     const [loading, setloading] = useState(false)
     const [errmsg, seterrmsg] = useState('')
     const [image, setimage] = useState('')
-    const [name, setname] = useState('')
+    const [Aspname, setAspname] = useState('')
     const [position, setPosition] = useState('');
     const [represent, setRepresent] = useState('');
     const [singAsp, setsingAsp] = useState()
@@ -104,14 +104,28 @@ function SingleAsp() {
 
         try{
 
+            setloading(true)
+
             const updatedData ={
 
-                name:name,
+                name:Aspname,
                 Position:position,
                 Represent:represent
             }
 
-            const updateData = axios.patch(`http://localhost:3007/api/admin/updateaspirants/${id}`, updatedData)
+            const updateData = await axios.patch(`http://localhost:3007/api/admin/updateaspirants/${id}`, updatedData)
+
+            // console.log(updateData)
+
+            sweetAlert.fire({
+
+                title:'Details updated Successfully',
+                text:updateData.data.msg,
+                icon:'success',
+                
+              })
+
+            setloading(false)
 
 
         }
@@ -119,6 +133,8 @@ function SingleAsp() {
         catch(err){
 
             console.log(err)
+            seterrmsg('Oops, refresh the page, something is wrong')
+
             setloading(false)
         }
 
@@ -194,13 +210,13 @@ function SingleAsp() {
         isOpen={updateModalOpen}
         onClose={closeUpdateModal}
         onUpdate={handleUpdateSubmit}
-        name={name}
+        name={Aspname}
         name={position}
         name={represent}
 
         onChange={(e) => {
           const { name, value } = e.target;
-          if (name === 'name') setname(value);
+          if (name === 'names') setAspname(value);
           if (name === 'position') setPosition(value);
           if (name === 'represent') setRepresent(value);
         }}
