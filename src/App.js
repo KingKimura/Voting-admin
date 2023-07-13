@@ -5,7 +5,7 @@ import DashboardPages from '../src/pages/dashboard/dash'
 import VoterPages from '../src/pages/voters/voters'
 import Aspirantpages from '../src/pages/aspirants/asp'
 import SingleAspPages from '../src/pages/singleAspirant/singleAsp'
-
+import SingleVoterPagess from '../src/pages/singleVoter/singleVoter'
 
 function App() {
 
@@ -25,7 +25,7 @@ function App() {
           <Route path ='/voters' element={<VoterPages/>} />
           <Route path ='/aspirants' element={<Aspirantpages/>} />
           <Route path ='/singleaspirant/:id' element ={<SingleAspPages/>}/>
-
+          <Route path ='/singlevoter/:id' element ={<SingleVoterPagess/>}/>
 
 
 

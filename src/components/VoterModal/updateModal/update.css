@@ -1,0 +1,104 @@
+/* Common styles for both modals */
+.modal-overlay {
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(158, 108, 143, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+
+    background-color: #fff;
+    padding: 20px;
+    max-width: 600px;
+    height:400px;
+    display:flex;
+    flex-direction:column;
+
+  }
+  
+  /* Styles specific to the Update Modal */
+  /* .update-modal-content {
+    background-color: #fff;
+    color: #000;
+  } */
+
+  .modal-content-main{
+
+    display:flex;
+    flex-direction:column;
+    max-width: 600px;
+    height:400px;
+    gap: 1.3rem;
+
+  }
+
+  input,select {
+    width: 230px;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: border-color 0.3s ease-in-out;
+  
+    &:focus {
+      outline: none;
+      border-color: purple;
+    }
+  }
+  
+  input::placeholder {
+    font-weight: bold;
+  }
+
+  .update-modal-button {
+    width: 230px;
+    margin-top: 20px;
+    padding: 10px 16px;
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  
+    &:hover {
+      background-color: violet;
+    }
+  }
+  
+  
+  .modal-close-button {
+    width: 230px;
+    margin-top: 20px;
+    padding: 10px 16px;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    background-color: red;
+
+    &:hover {
+
+        background-color: rgb(196, 74, 74);  
+
+      }
+  }
+  
+  /* Styles specific to the Delete Modal */
+  .delete-modal-content {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .delete-modal-button {
+    background-color: red;
+    color: #fff;
+  }
+  
