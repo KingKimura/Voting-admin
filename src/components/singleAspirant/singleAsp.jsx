@@ -96,9 +96,23 @@ function SingleAsp() {
       };
 
 
-      const handleUpdateSubmit = () => {
+      const handleUpdateSubmit = async(e) => {
         // Perform update logic here
         // ...
+
+        e.preventDefault()
+
+        try{
+
+
+        }
+
+        catch(err){
+
+            console.log(err)
+            setloading(false)
+        }
+
 
 
         closeUpdateModal();
