@@ -32,15 +32,10 @@ function Update({ isOpen, onClose, onUpdate, name, position, represent, onChange
                 </div>
 
 
-                {/* <input type="text" name="position" value={position} onChange={onChange} /> */}
-
-
-                {/* <input type="text" name="represent" value={represent} onChange={onChange} /> */}
-
                 <div className="name">
 
                     <FaPoll/>
-                    <select name ='position'>
+                    <select name ='position' value ={position} onChange={onChange}>
 
                         <option value="" disabled selected>Vying Position</option>
                         <option>President</option>
@@ -58,7 +53,7 @@ function Update({ isOpen, onClose, onUpdate, name, position, represent, onChange
 
                     <FaSchool/>
 
-                    <select name='represent' >
+                    <select name='represent' value={represent} onChange={onChange}>
                         
                         <option value="" disabled selected>School You Represent</option>
                         <option>Engineering and Technology</option>

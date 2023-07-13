@@ -99,12 +99,16 @@ function SingleAsp() {
       const handleUpdateSubmit = () => {
         // Perform update logic here
         // ...
+
+
         closeUpdateModal();
       };
 
       const handleDeleteConfirm = () => {
         // Perform delete logic here
         // ...
+
+
         closeDeleteModal();
       };
 
@@ -180,7 +184,7 @@ function SingleAsp() {
 
       />
 
-        <DeleteModal isOpen={deleteModalOpen} onClose={closeDeleteModal} onDelete={handleDeleteConfirm} />
+      <DeleteModal isOpen={deleteModalOpen} onClose={closeDeleteModal} onDelete={handleDeleteConfirm} />
     
 
 
