@@ -23,7 +23,7 @@ function Delete({ isOpen, onClose, onDelete }) {
 
 
             <h2>Delete Aspirant</h2>
-            <p>Are you sure you want to delete this aspirant?</p>
+            <p>Are you sure you want to delete this voter?</p>
             <button onClick={onDelete} className='delete-modal-button'>Confirm Delete</button>
             <button onClick={onClose} className ='delete-modal-button'>Cancel</button>
 

@@ -7,8 +7,8 @@ import axios from 'axios'
 import {Image} from 'cloudinary-react'
 import sweetAlert from 'sweetalert2'
 import {TbFidgetSpinner} from 'react-icons/tb'
-import UpdateModal from '../Modals/updateModal/update'
-import DeleteModal from '../Modals/DeleteModal/delete'
+import UpdateModal from '../VoterModal/updateModal/update'
+import DeleteModal from '../VoterModal/DeleteModal/delete'
 
 
 function SingleVoter() {
@@ -147,7 +147,7 @@ function SingleVoter() {
 
         try{
 
-            const deleteVoter = await axios.delete(`http://localhost:3007/api/admin/deleteaspirants/${id}`)
+            const deleteVoter = await axios.delete(`http://localhost:3007/api/admin/deletevoter/${id}`)
 
             // console.log(deleteAsp)
 
