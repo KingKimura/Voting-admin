@@ -33,7 +33,7 @@ function SingleVoter() {
 
                 setloading(true)
 
-                const singleVoter = await axios.get(`http://localhost:3007/api/admin/allaspirants/${id}`)
+                const singleVoter = await axios.get(`http://localhost:3007/api/admin/singlevoter/${id}`)
                 // console.log(singleAspirant)
 
                 const singleVoterData = singleVoter.data.singlevoter
@@ -245,8 +245,8 @@ function SingleVoter() {
 
                             <div className ='updating-details'>
 
-                                <h3>Aspirant Name:<span className='asp'>{singVoter.name}</span></h3>
-                                <h3>Aspirant Position:<span className='asp'>{singVoter.phoneNumber}</span></h3>
+                                <h3>Voter Name:<span className='asp'>{singVoter.name}</span></h3>
+                                <h3>Voter Contact:<span className='asp'>{singVoter.phoneNumber}</span></h3>
                                 <h3>Number of Voted for:{count}</h3>
 
 
@@ -286,7 +286,7 @@ function SingleVoter() {
 
         onChange={(e) => {
           const { name, value } = e.target;
-          if (name === 'names') setvotername(value);
+          if (name === 'namesvoter') setvotername(value);
           if (name === 'contact') setcontact(value);
         }}
 

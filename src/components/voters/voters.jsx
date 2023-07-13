@@ -146,7 +146,7 @@ function Voters() {
                         <tr>
 
                           <td>{index +1}</td>
-                          <Link to ={{ pathname: `/voter/${vote._id}`  }} className ='linkto'><td>{vote.name}</td></Link>
+                          <Link to ={{ pathname: `/singlevoter/${vote._id}`  }} className ='linkto'><td>{vote.name}</td></Link>
                           <td>{vote.phoneNumber}</td>
                           
 
