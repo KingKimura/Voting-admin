@@ -33,7 +33,7 @@ function SingleVoter() {
 
                 setloading(true)
 
-                const singleVoter = await axios.get(`http://localhost:3007/api/admin/singlevoter/${id}`)
+                const singleVoter = await axios.get(`https://voting-server-7g7j.onrender.com/api/admin/singlevoter/${id}`)
                 // console.log(singleAspirant)
 
                 const singleVoterData = singleVoter.data.singlevoter
@@ -111,7 +111,7 @@ function SingleVoter() {
             
             }
 
-            const updateData = await axios.patch(`http://localhost:3007/api/admin/updatevoter/${id}`, updatedData)
+            const updateData = await axios.patch(`https://voting-server-7g7j.onrender.com/api/admin/updatevoter/${id}`, updatedData)
 
             // console.log(updateData)
 
@@ -147,7 +147,7 @@ function SingleVoter() {
 
         try{
 
-            const deleteVoter = await axios.delete(`http://localhost:3007/api/admin/deletevoter/${id}`)
+            const deleteVoter = await axios.delete(`https://voting-server-7g7j.onrender.com/api/admin/deletevoter/${id}`)
 
             // console.log(deleteAsp)
 
@@ -197,7 +197,7 @@ function SingleVoter() {
 
                 setloading(true)
 
-                const countData = await axios.get(`http://localhost:3007/api/aspirant/allvoters/${id}`)
+                const countData = await axios.get(`https://voting-server-7g7j.onrender.com/api/aspirant/allvoters/${id}`)
                 console.log(countData)
                 
                 const voterCount = countData.data.count

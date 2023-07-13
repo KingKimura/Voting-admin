@@ -35,7 +35,7 @@ function SingleAsp() {
 
                 setloading(true)
 
-                const singleAspirant = await axios.get(`http://localhost:3007/api/admin/allaspirants/${id}`)
+                const singleAspirant = await axios.get(`https://voting-server-7g7j.onrender.com/api/admin/allaspirants/${id}`)
                 // console.log(singleAspirant)
 
                 const singleAspData = singleAspirant.data.singleAsp
@@ -113,7 +113,7 @@ function SingleAsp() {
                 Represent:represent
             }
 
-            const updateData = await axios.patch(`http://localhost:3007/api/admin/updateaspirants/${id}`, updatedData)
+            const updateData = await axios.patch(`https://voting-server-7g7j.onrender.com/api/admin/updateaspirants/${id}`, updatedData)
 
             // console.log(updateData)
 
@@ -149,7 +149,7 @@ function SingleAsp() {
 
         try{
 
-            const deleteAsp = await axios.delete(`http://localhost:3007/api/admin/deleteaspirants/${id}`)
+            const deleteAsp = await axios.delete(`https://voting-server-7g7j.onrender.com/api/admin/deleteaspirants/${id}`)
 
             // console.log(deleteAsp)
 
@@ -199,7 +199,7 @@ function SingleAsp() {
 
                 setloading(true)
 
-                const countData = await axios.get(`http://localhost:3007/api/aspirant/allvoters/${id}`)
+                const countData = await axios.get(`https://voting-server-7g7j.onrender.com/api/aspirant/allvoters/${id}`)
                 // console.log(countData)
                 
                 const aspCount = countData.data.count
@@ -324,44 +324,3 @@ export default SingleAsp
 
 
 
-{/* <form className="updating-details" >
-
-<div className ='update-img'>
-
-
-    <BsFillImageFill/>
-
-    <input type ='file' name ='image' accept='image/*'/>
-
-
-</div>
-
-<div className ='name'>
-
-    <BsFillPersonFill/>
-
-    <input
-        type="text"
-        name="name"
-        required
-        placeholder="Enter Your name"
-    />
-
-</div>
-
-<div className="reg-submit-btn">
-
-    {/* {errmsg ? <p className ='error-msg'>{errmsg}</p>:( */}
-
-
-        
-        // <button type="submit" className="btn-reg" > Submit</button> 
-        
-    {/* // )} */}
-
-//  </div>
-
-
-
-// </form>
- 

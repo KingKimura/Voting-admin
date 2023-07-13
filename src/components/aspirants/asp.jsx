@@ -22,7 +22,7 @@ function Aspirant() {
 
         setloading(true)
 
-        const Aspirants = await axios.get('http://localhost:3007/api/admin/allaspirants')
+        const Aspirants = await axios.get('https://voting-server-7g7j.onrender.com/api/admin/allaspirants')
 
         // console.log(Aspirants)
 

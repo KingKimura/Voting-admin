@@ -22,7 +22,7 @@ function Voters() {
 
         setloading(true)
 
-        const Voters = await axios.get('http://localhost:3007/api/admin/allvoters')
+        const Voters = await axios.get('https://voting-server-7g7j.onrender.com/api/admin/allvoters')
 
         // console.log(Voters)
 
