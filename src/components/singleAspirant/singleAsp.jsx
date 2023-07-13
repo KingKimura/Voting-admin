@@ -104,6 +104,15 @@ function SingleAsp() {
 
         try{
 
+            const updatedData ={
+
+                name:name,
+                Position:position,
+                Represent:represent
+            }
+
+            const updateData = axios.patch(`http://localhost:3007/api/admin/updateaspirants/${id}`, updatedData)
+
 
         }
 
