@@ -143,9 +143,24 @@ function SingleAsp() {
         closeUpdateModal();
       };
 
-      const handleDeleteConfirm = () => {
+      const handleDeleteConfirm = async() => {
         // Perform delete logic here
         // ...
+
+        try{
+
+
+        }
+
+        catch(err){
+
+            console.log(err)
+            seterrmsg('Oops, refresh the page, something is wrong')
+
+            setloading(false)
+            
+        }
+
 
 
         closeDeleteModal();
