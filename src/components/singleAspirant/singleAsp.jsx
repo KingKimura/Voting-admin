@@ -7,7 +7,8 @@ import axios from 'axios'
 import {Image} from 'cloudinary-react'
 import sweetAlert from 'sweetalert2'
 import {TbFidgetSpinner} from 'react-icons/tb'
-
+import UpdateModal from '../Modals/updateModal/update'
+import DeleteModal from '../Modals/DeleteModal/delete'
 
 
 function SingleAsp() {
@@ -20,7 +21,11 @@ function SingleAsp() {
     const [errmsg, seterrmsg] = useState('')
     const [image, setimage] = useState('')
     const [name, setname] = useState('')
+    const [position, setPosition] = useState('');
+    const [represent, setRepresent] = useState('');
     const [singAsp, setsingAsp] = useState()
+    const [updateModalOpen, setUpdateModalOpen] = useState(false);
+    const [deleteModalOpen, setDeleteModalOpen] = useState(false);
 
     useEffect(()=>{
 
@@ -65,6 +70,44 @@ function SingleAsp() {
     }, [id])
 
 
+    const openUpdateModal = () => {
+
+        setUpdateModalOpen(true);
+
+      };
+    
+      const closeUpdateModal = () => {
+
+        setUpdateModalOpen(false);
+
+      };
+    
+
+      const openDeleteModal = () => {
+
+        setDeleteModalOpen(true);
+
+      };
+    
+      const closeDeleteModal = () => {
+
+        setDeleteModalOpen(false);
+
+      };
+
+
+      const handleUpdateSubmit = () => {
+        // Perform update logic here
+        // ...
+        closeUpdateModal();
+      };
+
+      const handleDeleteConfirm = () => {
+        // Perform delete logic here
+        // ...
+        closeDeleteModal();
+      };
+
 
     
   return (
@@ -100,8 +143,8 @@ function SingleAsp() {
 
                             <div className='crucial-btns'>
 
-                                <button className="sign-in-btn" >Update Details</button>
-                                <button className ='delete-btn'>Delete Aspirant</button>
+                                <button className="sign-in-btn" onClick={openUpdateModal}>Update Details</button>
+                                <button className ='delete-btn' onClick={openDeleteModal}>Delete Aspirant</button>
 
                             </div>
 
@@ -120,6 +163,25 @@ function SingleAsp() {
 
         </section>
 
+        <UpdateModal
+        isOpen={updateModalOpen}
+        onClose={closeUpdateModal}
+        onUpdate={handleUpdateSubmit}
+        name={name}
+        name={position}
+        name={represent}
+
+        onChange={(e) => {
+          const { name, value } = e.target;
+          if (name === 'name') setname(value);
+          if (name === 'position') setPosition(value);
+          if (name === 'represent') setRepresent(value);
+        }}
+
+      />
+
+        <DeleteModal isOpen={deleteModalOpen} onClose={closeDeleteModal} onDelete={handleDeleteConfirm} />
+    
 
 
     

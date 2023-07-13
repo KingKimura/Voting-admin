@@ -1,0 +1,43 @@
+/* Common styles for both modals */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 400px;
+  }
+  
+  /* Styles specific to the Update Modal */
+  
+  
+
+  
+  /* Styles specific to the Delete Modal */
+  
+  
+  .delete-modal-button {
+    background-color: red;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+
+        background-color: rgb(196, 74, 74);  
+
+      }
+  }
+  

@@ -1,0 +1,86 @@
+import React from 'react'
+import './update.css'
+import Modal from 'react-modal'
+import {BsFillPersonFill} from 'react-icons/bs'
+import {FaPoll,FaSchool} from 'react-icons/fa'
+
+function Update({ isOpen, onClose, onUpdate, name, position, represent, onChange }) {
+
+
+  return (
+
+    <Modal
+    
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      contentLabel="Update Modal"
+      className="modal-content update-modal-content"
+      overlayClassName="modal-overlay"
+
+    >
+
+        <div className ='modal-content-main'>
+
+                <h2>Update Details</h2>
+
+                <div className ='name'>
+
+                    <BsFillPersonFill/>
+
+                    <input type="text" name="name" placeholder ='Enter the Aspirants name' value={name} onChange={onChange} />
+
+                </div>
+
+
+                {/* <input type="text" name="position" value={position} onChange={onChange} /> */}
+
+
+                {/* <input type="text" name="represent" value={represent} onChange={onChange} /> */}
+
+                <div className="name">
+
+                    <FaPoll/>
+                    <select name ='position'>
+
+                        <option value="" disabled selected>Vying Position</option>
+                        <option>President</option>
+                        <option>Deputy President</option>
+                        <option>Treasurer</option>
+                        <option>Secretary General</option>
+                        <option>Delegate</option>
+
+                    </select>
+
+                </div>
+
+
+                <div className="name">
+
+                    <FaSchool/>
+
+                    <select name='represent' >
+                        
+                        <option value="" disabled selected>School You Represent</option>
+                        <option>Engineering and Technology</option>
+                        <option>Science and Humanities</option>
+                        <option>Economics</option>
+                        <option>Education</option>
+                        <option>Environment, water and Fishery</option>
+
+                    </select>
+
+                </div>
+
+
+                <button onClick={onUpdate} className='update-modal-button' >Confirm Update</button>
+                <button onClick={onClose} className ='modal-close-button'>Cancel</button>
+
+        </div>
+
+
+    </Modal>
+
+  )
+}
+
+export default Update
