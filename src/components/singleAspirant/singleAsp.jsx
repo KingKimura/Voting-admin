@@ -132,7 +132,7 @@ function SingleAsp() {
 
         catch(err){
 
-            console.log(err)
+            // console.log(err)
             seterrmsg('Oops, refresh the page, something is wrong')
 
             setloading(false)
@@ -149,12 +149,33 @@ function SingleAsp() {
 
         try{
 
+            const deleteAsp = await axios.delete(`http://localhost:3007/api/admin/deleteaspirants/${id}`)
+
+            // console.log(deleteAsp)
+
+            sweetAlert.fire({
+
+                title:'Aspirant Deleted Successfully',
+                text:deleteAsp.data.msg,
+                icon:'success',
+                
+              })
+
+            setloading(false)
+
+            setTimeout(()=>{
+
+                navigate('/dashboard')
+
+            },2000)
+              
+
 
         }
 
         catch(err){
 
-            console.log(err)
+            // console.log(err)
             seterrmsg('Oops, refresh the page, something is wrong')
 
             setloading(false)
@@ -165,6 +186,49 @@ function SingleAsp() {
 
         closeDeleteModal();
       };
+
+
+      const [count, setcount] = useState()
+
+  
+        useEffect(()=>{
+
+            const fetchCount = async()=>{
+
+            try{
+
+                setloading(true)
+
+                const countData = await axios.get(`http://localhost:3007/api/aspirant/allvoters/${id}`)
+                // console.log(countData)
+                
+                const aspCount = countData.data.count
+
+                // console.log(aspCount)
+                
+                setcount(aspCount)
+                
+                setloading(false)
+            }
+
+            catch(err){
+
+                // console.log(err)
+                setloading(false)
+            }
+
+
+            }
+
+            fetchCount()
+
+
+        }, [])
+
+        if(count == undefined){
+
+            setcount(0)
+        }
 
 
     
@@ -194,6 +258,7 @@ function SingleAsp() {
                                 <h3>Aspirant Name:<span className='asp'>{singAsp.name}</span></h3>
                                 <h3>Aspirant Position:<span className='asp'>{singAsp.Position}</span></h3>
                                 <h3>Aspirant Represenation:<span className='asp'>{singAsp.Represent}</span></h3>
+                                <h3>Number of Votes:{count}</h3>
 
 
 
@@ -214,6 +279,8 @@ function SingleAsp() {
                   <TbFidgetSpinner className='spinner-loader'/>
 
                 )
+
+                // {deleteAsp ? <p>User has already been deleted </p>}d 
             
             }
 
